@@ -3,12 +3,10 @@ import java.util.Date;
 
 public class BookingManager {
     private BookingStrategy bookingStrategy;
-    private NotificationStrategy notificationStrategy;
+    private final NotificationStrategy notificationStrategy;
     private final AvailabilityService availabilityService;
 
-    public BookingManager(BookingStrategy bookingStrategy,
-                          NotificationStrategy notificationStrategy,
-                          AvailabilityService availabilityService) {
+    public BookingManager(BookingStrategy bookingStrategy, NotificationStrategy notificationStrategy, AvailabilityService availabilityService) {
         this.bookingStrategy = bookingStrategy;
         this.notificationStrategy = notificationStrategy;
         this.availabilityService = availabilityService;
@@ -29,8 +27,7 @@ public class BookingManager {
 
         Booking booking = bookingStrategy.createBooking(customer, table, dateTime, guests);
 
-        String message = "Booking confirmed for " + customer.getName() +
-                " at " + dateTime + " on Table " + table.getTableNumber();
+        String message = "At " + dateTime + " on Table " + table.getTableNumber();
         notificationStrategy.sendNotification(customer, message);
 
         System.out.println("Booking created successfully: " + booking);
