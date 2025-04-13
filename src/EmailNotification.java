@@ -3,7 +3,7 @@ public class EmailNotification implements NotificationStrategy {
 
     private EmailNotification() {}
 
-    public static EmailNotification getInstance(){
+    public static synchronized EmailNotification getInstance(){
         if(instance == null){
             instance = new EmailNotification();
         }

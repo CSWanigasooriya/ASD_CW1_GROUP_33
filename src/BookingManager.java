@@ -1,7 +1,7 @@
 import java.time.LocalDateTime;
 
 public class BookingManager {
-    private BookingStrategy bookingStrategy;
+    private final BookingStrategy bookingStrategy;
     private final NotificationStrategy notificationStrategy;
     private final AvailabilityService availabilityService;
 
@@ -9,10 +9,6 @@ public class BookingManager {
         this.bookingStrategy = bookingStrategy;
         this.notificationStrategy = notificationStrategy;
         this.availabilityService = availabilityService;
-    }
-
-    public void setBookingStrategy(BookingStrategy bookingStrategy) {
-        this.bookingStrategy = bookingStrategy;
     }
 
     public void createBooking(Customer customer, Table table, LocalDateTime dateTime, Integer guests) {

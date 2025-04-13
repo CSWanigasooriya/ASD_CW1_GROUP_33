@@ -3,7 +3,7 @@ public class SMSNotification implements NotificationStrategy {
 
     private SMSNotification() {}
 
-    public static SMSNotification getInstance(){
+    public static synchronized SMSNotification getInstance(){
         if(instance == null){
             instance = new SMSNotification();
         }

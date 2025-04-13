@@ -5,7 +5,7 @@ public class WalkInBookingStrategy implements BookingStrategy {
 
     private WalkInBookingStrategy() {}
 
-    public static WalkInBookingStrategy getInstance(){
+    public static synchronized WalkInBookingStrategy getInstance(){
         if(instance == null){
             instance = new WalkInBookingStrategy();
         }

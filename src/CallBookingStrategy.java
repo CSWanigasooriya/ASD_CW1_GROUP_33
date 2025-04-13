@@ -6,7 +6,7 @@ public class CallBookingStrategy implements BookingStrategy {
 
     private CallBookingStrategy() {}
 
-    public static CallBookingStrategy getInstance(){
+    public static synchronized CallBookingStrategy getInstance(){
         if(instance == null){
             instance = new CallBookingStrategy();
         }
