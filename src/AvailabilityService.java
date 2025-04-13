@@ -5,12 +5,20 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class AvailabilityService {
+    private static AvailabilityService instance;
 
     private final TableRepository tableRepository;
     private final Map<String, Lock> lockRegistry = new ConcurrentHashMap<>();
 
-    public AvailabilityService(TableRepository tableRepository) {
+    private AvailabilityService(TableRepository tableRepository) {
         this.tableRepository = tableRepository;
+    }
+
+    public static synchronized AvailabilityService getInstance(TableRepository tableRepository) {
+        if (instance == null) {
+            instance = new AvailabilityService(tableRepository);
+        }
+        return instance;
     }
 
     public boolean checkAvailability(String tableId, LocalDateTime dateTime, int guests) {

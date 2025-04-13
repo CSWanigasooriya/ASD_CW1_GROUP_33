@@ -1,3 +1,3 @@
 public enum BookingType {
-    WALK_IN, CALL
+    WALK_IN, CALL, DUMMY
 }
