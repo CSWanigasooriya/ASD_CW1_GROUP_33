@@ -51,7 +51,7 @@ public class AvailabilityService {
         Table table = tableRepository.findById(tableId);
         if (table == null || dateTime == null) return;
 
-        Booking dummyBooking = new Booking(); // Populate as needed
+        Booking dummyBooking = new Booking();
         table.getBookings().put(dateTime, dummyBooking);
     }
 
