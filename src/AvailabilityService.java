@@ -10,15 +10,8 @@ public class AvailabilityService {
     private final TableRepository tableRepository;
     private final Map<String, Lock> lockRegistry = new ConcurrentHashMap<>();
 
-    private AvailabilityService(TableRepository tableRepository) {
+    public AvailabilityService(TableRepository tableRepository) {
         this.tableRepository = tableRepository;
-    }
-
-    public static synchronized AvailabilityService getInstance(TableRepository tableRepository) {
-        if (instance == null) {
-            instance = new AvailabilityService(tableRepository);
-        }
-        return instance;
     }
 
     public boolean checkAvailability(String tableId, LocalDateTime dateTime, int guests) {
