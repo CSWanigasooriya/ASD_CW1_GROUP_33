@@ -1,5 +1,4 @@
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class Booking {
     private String bookingId;

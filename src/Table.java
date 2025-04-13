@@ -8,22 +8,13 @@ public class Table {
     private Integer tableNumber;
     private Integer capacity;
     private String location;
-    private Map<LocalDateTime, Booking> bookings;
-
-    public Table() {
-        this.bookings = new HashMap<>();
-        this.tableId = "";
-        this.tableNumber = 0;
-        this.capacity = 0;
-        this.location = "";
-    }
+    private Map<LocalDateTime, Booking> bookings = new HashMap<>();
 
     public Table(String tableId, Integer tableNumber, int capacity, String location) {
         this.tableId = tableId;
         this.tableNumber = tableNumber;
         this.capacity = capacity;
         this.location = location;
-        this.bookings = new HashMap<>();
     }
 
     public String getTableId() {
